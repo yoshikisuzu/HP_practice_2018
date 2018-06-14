@@ -40,7 +40,7 @@
             background: #353d3e;
             color: #fff;
         }
-        ul.menu li a:not(.active){
+        ul.menu li a:not(.active):hover{
             opacity: 0.5;
             transition: .8s;
         }
@@ -60,16 +60,16 @@
 <body>
     <div class="container">
         <ul class="menu">
-            <li><a href="#" class="active menu_item">ABOUT</a></li>
-            <li><a href="#" class="menu_item">SERVICE</a></li>
-            <li><a href="#" class="menu_item">CONTACT</a></li>
+            <li><a href="#" data-id="about" class="active menu_item">ABOUT</a></li>
+            <li><a href="#" data-id="service" class="menu_item">SERVICE</a></li>
+            <li><a href="#" data-id="contact" class="menu_item">CONTACT</a></li>
         </ul>
-        <div class="content" id="about">
+        <div class="content active" id="about">
             about
 
         </div>
         <div class="content" id="service">
-            sevice
+            service
         </div>
         <div class="content" id="contact">
             contact
@@ -80,8 +80,11 @@
         'use strict';
 
         var menuItems = document.getElementsByClassName('menu_item');
+        var contents = document.getElementsByClassName('content');
 
-        for (i=0; i<menuItems.length; I++){
+        var i;
+
+        for (i=0; i<menuItems.length; i++){
             menuItems[i].addEventListener('click',function(e){
                 e.preventDefault();
 
@@ -92,6 +95,12 @@
                 }
 
                 this.className = 'menu_item active';
+
+                for(i=0; i <contents.length; i++){
+                    contents[i].className = 'content';
+                }
+
+                document.getElementById(this.dataset.id).className = 'content active';
 
             });
         }
