@@ -60,9 +60,9 @@
 <body>
     <div class="container">
         <ul class="menu">
-            <li><a href="#" class="active">ABOUT</a></li>
-            <li><a href="#">SERVICE</a></li>
-            <li><a href="#">CONTACT</a></li>
+            <li><a href="#" class="active menu_item">ABOUT</a></li>
+            <li><a href="#" class="menu_item">SERVICE</a></li>
+            <li><a href="#" class="menu_item">CONTACT</a></li>
         </ul>
         <div class="content" id="about">
             about
@@ -75,6 +75,20 @@
             contact
         </div>
     </div>
+<script>
+    (function(){
+        'use strict';
 
+        var menuItems = document.getElementsByClassName('menu_item');
+
+        for (i=0; i<menuItems.length; I++){
+            menuItems[i].addEventListener('click',function(e){
+                e.preventDefault();
+
+            });
+        }
+        
+    })();
+</script>
 </body>
 </html>
