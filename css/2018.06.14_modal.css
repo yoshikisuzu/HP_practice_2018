@@ -16,7 +16,7 @@ body {
 
 #mask{
     background: rgba(0,0,0,0.4)
-    position:fixed;
+    position absolute;
     top:0;
     bottom:0;
     right: 0;
@@ -33,4 +33,17 @@ body {
     left: 0;
     right: 0;
     margin: 0 auto;
+}
+
+#modal p {
+    line-height: 1.5;
+    margin:0 0 20px;
+}
+
+#mask.hidden {
+    display: none;
+}
+
+#modal.hidden {
+    transform: translate(0,-500px);
 }
